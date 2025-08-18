@@ -2,12 +2,11 @@ import './App.css';
 import { Layout } from './components/Layout';
 import api from './api/axiosConfig';
 import { useState, useEffect } from 'react';
-//import Layout from './components/Layout';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/home/Home';
 
 function App() {
-  const [moves, setMovies] = useState();
+  const [movies, setMovies] = useState();
 
   const getMovies = async () => {
     try {
@@ -21,13 +20,13 @@ function App() {
 
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [])
 
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/' element={<Home movies={movies} />}></Route>
         </Route>
       </Routes>
     </div>
