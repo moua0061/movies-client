@@ -22,7 +22,7 @@ const Hero = ({movies}) => {
                     console.log('Trailer path:', trailerPath);
                     console.log('Full trailer link:', movie.trailerLink);
                     return (
-                        <Paper>
+                        <Paper key={movie.imdbId}>
                             <div className='movie-card-container'>
                                 <div className='movie-card' style={{"--img": `url(${movie.backdrops[0]})`}}>
                                     <div className='movie-detail'>
