@@ -1,6 +1,9 @@
 import './Hero.css';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Hero = ({movies}) => {
   return (
@@ -8,6 +11,9 @@ const Hero = ({movies}) => {
         <Carousel>
             {
                 movies?.map((movie) => {
+                    const trailerPath = `/Trailer/${movie.trailerLink.substring(movie.trailerLink.length - 11)}`;
+                    console.log('Trailer path:', trailerPath);
+                    console.log('Full trailer link:', movie.trailerLink);
                     return (
                         <Paper>
                             <div className='movie-card-container'>
@@ -18,6 +24,15 @@ const Hero = ({movies}) => {
                                         </div>
                                         <div className='movie-title'>
                                             <h4>{movie.title}</h4>
+                                        </div>
+                                        <div className='movie-buttons-container'>
+                                            <Link to={`/Trailer/${movie.trailerLink.substring(movie.trailerLink.length - 11)}`}>
+                                            <div className='play-button-icon-container'>
+                                                <FontAwesomeIcon className='play-button-icon'
+                                                    icon={faCirclePlay}
+                                                />
+                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
