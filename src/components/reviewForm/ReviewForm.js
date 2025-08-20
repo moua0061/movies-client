@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
 
-const ReviewForm = () => {
+const ReviewForm = ({handleSubmit,revText,labelText,defaultValue}) => {
   return (
     <Form>
         <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
